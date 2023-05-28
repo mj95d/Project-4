@@ -25,21 +25,21 @@ public class MovieController {
 
 
     @PostMapping("/add")
-    public ResponseEntity createMovie(@RequestBody @Valid Movie movie, Errors errors) {
+    public ResponseEntity addMovie(@RequestBody @Valid Movie movie, Errors errors) {
         movieService.addMovie(movie);
         return ResponseEntity.status(200).body("add Movie");
     }
 
 
     @PostMapping("/update/movie/{id}")
-    public ResponseEntity updateMovieById(@PathVariable Long id, @RequestBody @Valid Movie movie) {
+    public ResponseEntity updateMovie(@PathVariable Long id, @RequestBody @Valid Movie movie) {
             movieService.deleteMovie(id);
             return ResponseEntity.status(200).body("delete Movie");
     }
 
 
     @DeleteMapping("/delete/movie/{id}")
-    public ResponseEntity deleteMovieById(@PathVariable int id) {
+    public ResponseEntity deleteMovie(@PathVariable int id) {
         return ResponseEntity.status(200).body("deleted");
     }
 
